@@ -1,0 +1,5 @@
+,Barbarian,Dwarf,Elf,Wizard,Goblin,Skeleton,Zombie,Orc,Abomination,Mummy,Dread Warrior,Gargoyle
+Attack,3,2,2,1,2,2,2,3,3,3,4,4
+Defend,2,2,2,2,1,2,3,2,3,4,4,5
+Body,8,7,6,4,1,1,1,1,2,2,3,3
+Mind,2,3,4,6,,,,,,,,
