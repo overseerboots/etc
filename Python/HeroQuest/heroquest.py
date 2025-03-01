@@ -22,61 +22,38 @@ import matplotlib.pyplot as plt
 # Pie Chart = 1
 # Bar Chart = 2
 
+def select_single_item_from_array(selections):
+    item_num = 0
+    valid_input = False
+    for item in selections:
+        item_num += 1
+        print(f"{str(item_num)}) {item}")
+    print("==================================")
+    while valid_input == False:
+        num_choice = int(input("> "))
+        try:
+            str_choice = selections[num_choice-1]
+            valid_input = True
+        except (IndexError, TypeError):
+            print("Invalid input, input must be a single integer from the list")
+    return str_choice
+
 def hero_select():
     '''
-    Asks the user to enter a hero and type checks it, also prompts to exit the program.
+    Asks the user to enter a hero and type checks it
     '''
     # Define the heroes to choose from
     heroes = ["Barbarian", "Dwarf", "Elf", "Wizard"]
-    
-    print("Select a Hero:")
-    print("0) Exit")
-    print("1) Barbarian")
-    print("2) Dwarf")
-    print("3) Elf")
-    print("4) Wizard")
-    print("==================================")
-    while True:
-        hero = 0
-        hero = input("Select a Hero\n> ")
-        if hero == "0":
-            print("Goodbye!")
-            quit()
-        else:
-            try:
-                hero = heroes[int(hero) - 1]
-                return hero
-            except (IndexError, TypeError):
-                print("!! INVALID HERO !!")
+    print("= HERO SELECT ====================")
+    return select_single_item_from_array(heroes)
 
 def monster_select():
     '''
     Asks the user to enter a monster and type checks it, also prompts to exit the program.
     '''
     monsters = ["Goblin", "Skeleton", "Zombie", "Orc", "Abomination", "Mummy", "Dread Warrior", "Gargoyle"]
-    print("Select a Monster:")
-    print("0) Exit")
-    print("1) Goblin")
-    print("2) Skeleton")
-    print("3) Zombie")
-    print("4) Orc")
-    print("5) Abomination")
-    print("6) Mummy")
-    print("7) Dread Warrior")
-    print("8) Gargoyle")
-    print("==================================")
-    while True:
-        monster = 0
-        monster = input("Select a Monster\n> ")
-        if monster == "0":
-            print("Goodbye!")
-            quit()
-        else:
-            try:
-                monster = monsters[int(monster) - 1]
-                return monster
-            except (IndexError, TypeError):
-                print("!! INVALID MONSTER !!")
+    print("= MONSTER SELECT =================")
+    return select_single_item_from_array(monsters)
 
 def num_of_fights_entry():
     '''
@@ -251,6 +228,8 @@ print("==================================")
 # Append to log
 log_append("= RESULTS ===========================")
 log_append(f"{hero} won {win_percentage}% of fights with {wins} wins and {losses} losses!")
+log_append(f"{hero} won in an average of {hero_avg_turns} turns")
+log_append(f"{monster} won in an average of {monster_win_turns} turns")
 
 # Graphs
 another_graph_check = "y"
